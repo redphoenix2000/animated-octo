@@ -24,7 +24,8 @@ function init()
 
     noGround = [];
     ground = new Ground(0xffffff, WIDTH, HEIGHT, 10);
-    player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
+    element = ground_l[0];
+    player1 = new Player("player1", 0xffff00, new THREE.Vector2(element[0], element[1]), 0);
     scene.add(player1.graphic);
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
@@ -56,6 +57,7 @@ function Ground(color, size_x, size_y, nb_tile)
                 tmpGround.position.x = x;
                 tmpGround.position.y = y;
                 scene.add(tmpGround);
+                ground_l.push([x,y]);
             }
             else
                 noGround.push([x, y]);
